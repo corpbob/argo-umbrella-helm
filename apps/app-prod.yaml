@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: helm-umbrella-chart
+    path: .
     repoURL: https://github.com/corpbob/argo-umbrella-helm.git
     targetRevision: HEAD
     helm:
