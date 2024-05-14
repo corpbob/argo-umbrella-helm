@@ -1,22 +1,29 @@
-# Helm Dependencies
+# Umbrella Helm Chart Demo
 
-This example application demonstrates how an OTS (off-the-shelf) helm chart can be retrieved and pinned to a specific helm sem version from an upstream helm repository, and customized using a custom values.yaml in the private git repository.
+This is a demo showcasing the installation of an application using the umbrella pattern of Helm chart.
 
-In this example, the external-secrets application is pulled from the external-secrets helm repo, and pinned to `0.9.0`:
+## Installation
 
-```yaml
-dependencies:
-- name: external-secrets
-  version: 0.9.0
-  repository: https://charts.external-secrets.io
-```
+1. The Helm chart is located inside the `charts` directory.
 
-A custom `values-dev.yaml` is used to customize the parameters of the `external-secrets` helm chart:
+2. There are separate values files for development and production environments.
+
+3. To configure a particular chart in the `values.yaml` file, the configuration should be under the chart name. For example, to configure 1 replica for the `hello-world` chart, the values file would look like:
 
 ```yaml
-external-secrets:
-  podLabels:
-    eso: dev
+hello-world:
+  replicaCount: 1
 ```
 
-### Subchart Note
+## Deployment with ArgoCD
+
+Use the manifest file `apps-umbrella-chart.yaml` to create the application in ArgoCD using the following command:
+
+```bash
+kubectl apply -f apps-umbrella-chart.yaml
+```
+
+Ensure you have ArgoCD installed and configured in your Kubernetes cluster before applying the manifest file.
+
+
+
