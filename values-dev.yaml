@@ -4,7 +4,7 @@ hello-world:
     repository: bcorpusjr/fortune-demo
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    tag: "arm-v0.2"
 
   service:
     type: ClusterIP
