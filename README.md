@@ -23,6 +23,12 @@ Use the manifest file `apps-umbrella-chart.yaml` to create the application in Ar
 kubectl apply -f apps-umbrella-chart.yaml
 ```
 
+Or you can also deploy the specific environment. For example, to deploy the dev environment:
+
+```bash
+kubectl apply -f apps/app-dev.yaml
+```
+
 Ensure you have ArgoCD installed and configured in your Kubernetes cluster before applying the manifest file.
 
 
