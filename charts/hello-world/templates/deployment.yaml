@@ -18,6 +18,10 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /etc/secret-volume
+              readOnly: true
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -31,3 +35,7 @@ spec:
             httpGet:
               path: /
               port: http
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: my-secret
