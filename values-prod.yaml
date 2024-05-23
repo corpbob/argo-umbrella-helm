@@ -1,11 +1,16 @@
 hello-world:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: bcorpusjr/fortune-demo
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    # Overrides the image tag whose default is the chart appVersion. Use v2 for amd64
+    tag: "arm-v0.2"
 
   service:
     type: ClusterIP
     port: 3000
+
+namespace: prod
+my_secret:
+  foo: AgCfS6REU/Dmdl9r05Ig1Ha1cU30tpZ735kaqZoSMB1Uq1tHLoWCfRQHbX4NV4h76zWfTGVLmQFoZaBP5Zv0lo2FJN7wumTybRvWs+iV0WS1NWEsBLTL/rqr3vfAEt55U3ePi4o0SrQnLodDZbvSwt1/i3IvAHnraER7bMxLM1ex6JIpHxTXr+7gfI6DszVfWopP4iu4NuHbERWYnij019Qz0wkEloqrkGJGn2LiKWP6y5m+kVFYH7kBrw6tvvKhgKkCSffDb3MZZOYN5qiZ8M+2iK/D3g+Ra3ObjeparAww4w0+teRKzb7yQu8qgWG46liwF0rHIEDFIQDwcjJRYSr4e8beIUrfvsI58dFyEoG7b7+NT2Lqs8dqCsroms/JlR5uLfeUqE/brHCbbd7Ax5CBxASUfyHv7RqmsZ6C28l+Rk07DHC1dC/RoMOx27lVDqH/aCw2KqJk2uzbsNiJ9dZyxl3bmbojs99g+xmB/Wqp2CB/uWVuUm933RVx/rNhn6sBQNOOWat13t3Vu2D/a1aW+FDjA/z4gUAeyWLRRu748Nnenk7Co2oBv1gFNjDhmj5nSGQDG2S+z2G5620r3two7FldEYkO2dhnIPNLB+39qgW8ImUd0zFoC9ZQYzJmwN+sDAV2CS0zmFnwd8592R3n/fg1bsUGZnkzbBGPx7MJ44tRXQShsWVuRRDgHRhJ/7c=
+
